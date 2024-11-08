@@ -5,19 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Login</title>
     <link rel="stylesheet" href="../control Panel/login.css">
-        <link rel="icon" href="../pictures/logo.jpg" type="image/x-icon">
+    <link rel="icon" href="../pictures/logo.jpg" type="image/x-icon">
 </head>
 <body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo-container">
+            <img src="../pictures/logo.jpg" alt="Company Logo" class="logo">
+            <h1 class="company-name">Earth Landing</h1>
+        </div>
+    </header>
+
     <!-- Login Form -->
     <div class="login-container">
-        <h1>Admin Login</h1>
+        <h2>Admin Login</h2>
         <form id="login-form">
             <input type="email" id="email" placeholder="Enter your email" required>
             <input type="password" id="password" placeholder="Enter your password" required>
             <button type="submit">Login</button>
-            <p id="error-message"></p>
         </form>
     </div>
+
+    <!-- Error Pop-up -->
+    <div id="error-popup" class="error-popup">
+        <p id="error-message" class="error-message"></p>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Earth Landing. All Rights Reserved.</p>
+    </footer>
 
     <!-- Firebase Configuration and Scripts -->
     <script type="module" src="../control Panel/login.js"></script>
