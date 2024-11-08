@@ -37,7 +37,7 @@ onAuthStateChanged(auth, (user) => {
         fetchStudents();
     } else {
         // Redirect to login if user is not authorized
-        window.location.href = "index.html";
+        window.location.href = "../control Panel/login.html";
     }
 });
 
@@ -56,13 +56,26 @@ logoutBtn.addEventListener("click", () => {
 async function fetchStudents() {
     try {
         const querySnapshot = await getDocs(collection(db, "VITstudents"));
-        studentsList.innerHTML = "";
-        let userCount = 0;
+        const students = [];
+
         querySnapshot.forEach((doc) => {
             const studentData = doc.data();
-            displayStudent(studentData);
+            students.push(studentData);
+        });
+
+        // Sort the students alphabetically by name
+        students.sort((a, b) => a.name.localeCompare(b.name));
+
+        // Clear previous student list
+        studentsList.innerHTML = "";
+
+        // Display each student
+        let userCount = 0;
+        students.forEach((student) => {
+            displayStudent(student);
             userCount++;
         });
+
         // Update total registered users count
         totalCount.textContent = userCount;
     } catch (error) {
@@ -70,6 +83,7 @@ async function fetchStudents() {
         accessMessage.textContent = "Error fetching student data.";
     }
 }
+
 
 // Function to display student information
 function displayStudent(student) {
