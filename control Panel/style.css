@@ -1,4 +1,3 @@
-
 /* Basic Reset */
 * {
     margin: 0;
@@ -7,71 +6,73 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f0f0f0;
     color: #333;
 }
 
 header {
+    width: 100%;
     background-color: #333;
     color: white;
-    padding: 15px 20px;
-}
-
-.container {
-    display: flex;
-    align-items: center;
-}
-
-.logo {
-    font-size: 30px;
-    margin-right: 10px;
-}
-
-.company-name {
-    font-size: 24px;
-    font-weight: bold;
-    color: #94d2bd;
-}
-
-main {
-    max-width: 800px;
-    margin: 20px auto;
     padding: 20px;
-    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 h1 {
-    margin-bottom: 20px;
-    font-size: 2em;
-    color: #333;
+    font-size: 24px;
 }
 
-#students-list {
+#access-message {
+    font-size: 16px;
+    margin-right: 20px;
+}
+
+#logout-btn {
+    background-color: #ff6347;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+#logout-btn:hover {
+    background-color: #ff4500;
+}
+
+.students-list {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+    width: 100%;
 }
 
 .student-card {
-    width: 100%;
-    max-width: 600px;
-    background-color: #fff;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
     padding: 15px;
     margin: 10px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    text-align: center;
 }
 
 .student-card h3 {
-    font-size: 1.4em;
-    color: #94d2bd;
-}
-
-.student-card p {
-    font-size: 1em;
-    color: #555;
+    margin-bottom: 10px;
 }
 
 footer {
@@ -79,14 +80,7 @@ footer {
     padding: 20px;
     background-color: #333;
     color: white;
-    position: relative;
-    bottom: 0;
     width: 100%;
-}
-
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+    position: fixed;
+    bottom: 0;
 }
