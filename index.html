@@ -28,20 +28,21 @@
         media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)">
     <title>ShakeAlert</title>
     <link rel="stylesheet" href="index.css">
-    <link rel="icon" href="../pictures/logo.jpg" type="image/x-icon">
+    <link rel="icon" href="../webearthquack/pictures/logo.jpg" type="image/x-icon">
 </head>
 
 <body>
     <nav>
         <div class="container">
             <h1 class="logo">Shake Alert</h1>
-            <ul class="nav-links">
-                <li><a href="#home">About Us</a></li>
-                <li><a href="#about">Services</a></li>
-                <li><a href="#services">Earthquake</a></li>
-                <li><a href="#resources">Safety Measures</a></li>
-                <li><a href="login.html">Login</a></li>
-            </ul>
+            <nav class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#contact">Contact</a>
+                <a href="login.html">Login</a>
+            </nav>
+
             <div class="hamburger" id="hamburger">
                 <span></span>
                 <span></span>
@@ -58,47 +59,54 @@
     <section class="review-section">
         <h2 class="review-title">About Us</h2>
         <div class="review-container">
-    
+
             <div class="review active">
                 <img src="rubina.jpg" alt="Student 1" class="student-photo">
                 <div class="student-name">Rohit Shrivastava</div>
-                <p class="student-review">"AteaseVITIAN made course selection so simple! It suggested courses that helped me boost my CGPA while matching my interests. A must-use for VIT students! ⭐⭐⭐⭐⭐"</p>
+                <p class="student-review">"AteaseVITIAN made course selection so simple! It suggested courses that
+                    helped me boost my CGPA while matching my interests. A must-use for VIT students! ⭐⭐⭐⭐⭐"</p>
             </div>
-    
+
             <div class="review">
                 <img src="sarthak.jpg" alt="Student 2" class="student-photo">
                 <div class="student-name">Anshika Rai</div>
-                <p class="student-review">This platform is amazing! The recommendations are spot-on for improving CGPA, and it’s super easy to use. Thanks to AteaseVITIAN, my semester planning is stress-free!</p>
+                <p class="student-review">This platform is amazing! The recommendations are spot-on for improving CGPA,
+                    and it’s super easy to use. Thanks to AteaseVITIAN, my semester planning is stress-free!</p>
             </div>
-    
+
             <div class="review">
                 <img src="shreya.jpg" alt="Student 3" class="student-photo">
                 <div class="student-name">Sahil Zambre</div>
-                <p class="student-review">AteaseVITIAN helped me pick courses that improved my CGPA without overloading me. Great tool for students who want to balance interest and academic success!</p>
+                <p class="student-review">AteaseVITIAN helped me pick courses that improved my CGPA without overloading
+                    me. Great tool for students who want to balance interest and academic success!</p>
             </div>
-    
+
             <div class="review">
                 <img src="Vinay.jpg" alt="Student 4" class="student-photo">
                 <div class="student-name">Harshita Singh</div>
-                <p class="student-review">I love how personalized the suggestions are! AteaseVITIAN pointed me to the right courses for a better CGPA. The website is quick, efficient, and incredibly helpful!</p>
+                <p class="student-review">I love how personalized the suggestions are! AteaseVITIAN pointed me to the
+                    right courses for a better CGPA. The website is quick, efficient, and incredibly helpful!</p>
             </div>
-    
+
             <div class="review">
                 <img src="Vinay.jpg" alt="Student 5" class="student-photo">
                 <div class="student-name">Shreya Khadekar</div>
-                <p class="student-review">I love how personalized the suggestions are! AteaseVITIAN pointed me to the right courses for a better CGPA. The website is quick, efficient, and incredibly helpful!</p>
+                <p class="student-review">I love how personalized the suggestions are! AteaseVITIAN pointed me to the
+                    right courses for a better CGPA. The website is quick, efficient, and incredibly helpful!</p>
             </div>
-    
+
             <div class="review">
                 <img src="Vinay.jpg" alt="Student 6" class="student-photo">
                 <div class="student-name">Pranav Rayban</div>
-                <p class="student-review">I love how personalized the suggestions are! AteaseVITIAN pointed me to the right courses for a better CGPA. The website is quick, efficient, and incredibly helpful!</p>
+                <p class="student-review">I love how personalized the suggestions are! AteaseVITIAN pointed me to the
+                    right courses for a better CGPA. The website is quick, efficient, and incredibly helpful!</p>
             </div>
-    
+
             <div class="review">
                 <img src="Vinay.jpg" alt="Student 7" class="student-photo">
                 <div class="student-name">Nupoor Mahajan</div>
-                <p class="student-review">I love how personalized the suggestions are! AteaseVITIAN pointed me to the right courses for a better CGPA. The website is quick, efficient, and incredibly helpful!</p>
+                <p class="student-review">I love how personalized the suggestions are! AteaseVITIAN pointed me to the
+                    right courses for a better CGPA. The website is quick, efficient, and incredibly helpful!</p>
             </div>
         </div>
         <div class="button-container">
@@ -106,28 +114,29 @@
             <button class="next" onclick="changeReview(1)">&#10095;</button>
         </div>
     </section>
-    
+
     <section class="content-section" id="services">
         <h3 class="toggle-content" data-target="#services-content">Our Services</h3>
         <div class="hidden-content" id="services-content">
             <p>We offer data analysis, research papers, and consultation services tailored to your needs.</p>
         </div>
     </section>
-    
+
     <section class="content-section" id="resources">
         <h3 class="toggle-content" data-target="#resources-content">Resources</h3>
         <div class="hidden-content" id="resources-content">
-            <p>Access various resources including reports, articles, and databases to stay informed about seismic activities.</p>
+            <p>Access various resources including reports, articles, and databases to stay informed about seismic
+                activities.</p>
         </div>
     </section>
-    
+
     <section class="content-section" id="contact">
         <h3 class="toggle-content" data-target="#contact-content">Contact Us</h3>
         <div class="hidden-content" id="contact-content">
             <p>Get in touch for inquiries or more information. We are here to assist you!</p>
         </div>
     </section>
-    
+
 
     <footer>
         <p>&copy; 2024 ShakeAlert. All rights reserved.</p>
