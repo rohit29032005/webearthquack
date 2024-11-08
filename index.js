@@ -43,3 +43,10 @@ function changeReview(n) {
 
 // Initialize the first review to be shown
 showReview(currentReview);
+
+const menuButton = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+
+menuButton.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+});
