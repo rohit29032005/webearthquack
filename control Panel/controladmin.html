@@ -3,31 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registered VIT Students</title>
+    <title>Student Dashboard</title>
     <link rel="stylesheet" href="../control Panel/style.css">
+    <link rel="icon" href="../pictures/logo.jpg" type="image/x-icon">
 </head>
 <body>
-    <!-- Header Section -->
     <header>
-        <div class="container">
-            <div class="logo">🌎</div>
-            <div class="company-name">Earth Landing</div>
+        <div class="header-content">
+            <h1>ShakeAlert Dashboard</h1>
+            <p id="access-message"></p>
+            <button id="logout-btn">Logout</button>
         </div>
     </header>
 
-    <!-- Main Content Section -->
-    <main>
-        <h1>Registered VIT Students</h1>
-        <p id="access-message"></p>
-        <div id="students-list"></div>
-    </main>
+    <div class="container">
+        <h2>Total Registered Users: <span id="total-count">0</span></h2>
+    </div>
 
-    <!-- Footer Section -->
+    <div id="students-list" class="students-list">
+        <!-- Student information will be displayed here -->
+    </div>
+
     <footer>
-        <p>&copy; 2023 Earth Landing. All rights reserved.</p>
+        <p>&copy; 2024 Your Company Name. All rights reserved.</p>
     </footer>
 
-    <!-- Firebase Configuration and Scripts -->
     <script type="module" src="../control Panel/panel.js"></script>
 </body>
 </html>
