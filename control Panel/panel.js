@@ -21,6 +21,7 @@ const auth = getAuth(app);
 // Allowed email addresses
 const allowedEmails = [
     "raybanpranav.mahesh2023@vitstudent.ac.in",
+    "sahildinesh.zambre2023@vitstudent.ac.in",
     "rohit.lalbahadur2023@vitstudent.ac.in"
 ];
 
