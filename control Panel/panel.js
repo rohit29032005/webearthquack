@@ -30,7 +30,23 @@ const accessMessage = document.getElementById("access-message");
 const logoutBtn = document.getElementById("logout-btn");
 const totalCount = document.getElementById("total-count");
 
-// Check authentication state
+// Disable caching of this page
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js', { scope: '/' }).then(registration => {
+        console.log('Service worker registered.');
+    }).catch(error => {
+        console.log('Service worker registration failed:', error);
+    });
+}
+
+// Prevent navigating back to the dashboard after logout
+window.onpageshow = function (event) {
+    if (event.persisted) {
+        window.location.reload();
+    }
+};
+
+// Check authentication state on page load
 onAuthStateChanged(auth, (user) => {
     if (user && allowedEmails.includes(user.email)) {
         accessMessage.textContent = `Welcome, ${user.displayName || "Admin"}!`;
@@ -84,15 +100,39 @@ async function fetchStudents() {
     }
 }
 
-
 // Function to display student information
 function displayStudent(student) {
     const studentCard = document.createElement("div");
     studentCard.classList.add("student-card");
+
+    // Initial hidden password state
+    let passwordVisible = false;
+
+    // Create HTML structure with toggle button for password visibility
     studentCard.innerHTML = `
         <h3>${student.name}</h3>
         <p><strong>Email:</strong> ${student.email}</p>
         <p><strong>Phone:</strong> ${student.phone}</p>
+        <p><strong>Password:</strong> <span id="password-${student.email}">${'*'.repeat(student.password.length)}</span></p>
+        <button class="toggle-password" data-email="${student.email}">Show Password</button>
     `;
+
     studentsList.appendChild(studentCard);
+
+    // Add event listener for password visibility toggle
+    const toggleButton = studentCard.querySelector(".toggle-password");
+    toggleButton.addEventListener("click", () => {
+        passwordVisible = !passwordVisible;
+        const passwordSpan = document.getElementById(`password-${student.email}`);
+        
+        if (passwordVisible) {
+            passwordSpan.textContent = student.password;
+            toggleButton.textContent = "Hide Password";
+        } else {
+            passwordSpan.textContent = '*'.repeat(student.password.length);
+            toggleButton.textContent = "Show Password";
+        }
+    });
 }
+
+
