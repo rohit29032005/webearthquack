@@ -24,7 +24,17 @@ const allowedEmails = [
 
 // DOM Elements
 const loginForm = document.getElementById("login-form");
+const errorPopup = document.getElementById("error-popup");
 const errorMessage = document.getElementById("error-message");
+
+// Function to show error pop-up
+function showErrorPopup(message) {
+    errorMessage.textContent = message;
+    errorPopup.style.display = "block";
+    setTimeout(() => {
+        errorPopup.style.display = "none";
+    }, 4000); // Hide after 4 seconds
+}
 
 // Login Form Submit Event
 loginForm.addEventListener("submit", async (e) => {
@@ -35,19 +45,19 @@ loginForm.addEventListener("submit", async (e) => {
 
     // Check if email is allowed
     if (!allowedEmails.includes(email)) {
-        errorMessage.textContent = "Access denied. You are not authorized to log in.";
+        showErrorPopup("Access denied. You are not authorized to log in.");
         return;
     }
 
     try {
         // Sign in with email and password
         await signInWithEmailAndPassword(auth, email, password);
-        errorMessage.textContent = "Login successful!";
+        showErrorPopup("Login successful!");
         
         // Redirect to the admin dashboard or another protected page
         window.location.href = "../control Panel/controladmin.html"; // Update with your protected page URL
     } catch (error) {
         console.error("Login error:", error);
-        errorMessage.textContent = "Invalid email or password. Please try again.";
+        showErrorPopup("Invalid email or password. Please try again.");
     }
 });
