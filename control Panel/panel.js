@@ -1,7 +1,7 @@
 // Import Firebase SDK
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
 import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
-import { getAuth, onAuthStateChanged, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
 
 // Firebase configuration
 const firebaseConfig = {
@@ -27,43 +27,44 @@ const allowedEmails = [
 // Elements
 const studentsList = document.getElementById("students-list");
 const accessMessage = document.getElementById("access-message");
+const logoutBtn = document.getElementById("logout-btn");
+const totalCount = document.getElementById("total-count");
 
 // Check authentication state
 onAuthStateChanged(auth, (user) => {
     if (user && allowedEmails.includes(user.email)) {
-        accessMessage.textContent = `Welcome, ${user.displayName}!`;
+        accessMessage.textContent = `Welcome, ${user.displayName || "Admin"}!`;
         fetchStudents();
     } else {
-        signInWithGoogle();
+        // Redirect to login if user is not authorized
+        window.location.href = "index.html";
     }
 });
 
-// Function to sign in with Google
-function signInWithGoogle() {
-    const provider = new GoogleAuthProvider();
-    signInWithPopup(auth, provider)
-        .then((result) => {
-            const user = result.user;
-            if (!allowedEmails.includes(user.email)) {
-                accessMessage.textContent = "Access Denied. You are not authorized to view this page.";
-                studentsList.innerHTML = "";
-            }
+// Logout button event listener
+logoutBtn.addEventListener("click", () => {
+    signOut(auth)
+        .then(() => {
+            window.location.href = "../control Panel/login.html";
         })
         .catch((error) => {
-            console.error("Error signing in:", error);
-            accessMessage.textContent = "Error signing in. Please try again.";
+            console.error("Error signing out:", error);
         });
-}
+});
 
 // Function to fetch students from Firestore
 async function fetchStudents() {
     try {
         const querySnapshot = await getDocs(collection(db, "VITstudents"));
         studentsList.innerHTML = "";
+        let userCount = 0;
         querySnapshot.forEach((doc) => {
             const studentData = doc.data();
             displayStudent(studentData);
+            userCount++;
         });
+        // Update total registered users count
+        totalCount.textContent = userCount;
     } catch (error) {
         console.error("Error fetching students:", error);
         accessMessage.textContent = "Error fetching student data.";
