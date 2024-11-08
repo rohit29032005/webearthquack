@@ -32,12 +32,15 @@ const totalCount = document.getElementById("total-count");
 
 // Disable caching of this page
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/service-worker.js', { scope: '/' }).then(registration => {
-        console.log('Service worker registered.');
-    }).catch(error => {
-        console.log('Service worker registration failed:', error);
-    });
+    navigator.serviceWorker.register('../control Panel/service-worker.js', { scope: '/control Panel/' })
+        .then(registration => {
+            console.log('Service worker registered.');
+        })
+        .catch(error => {
+            console.log('Service worker registration failed:', error);
+        });
 }
+
 
 // Prevent navigating back to the dashboard after logout
 window.onpageshow = function (event) {
@@ -134,5 +137,3 @@ function displayStudent(student) {
         }
     });
 }
-
-
