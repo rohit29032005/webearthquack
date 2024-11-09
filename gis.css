@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  body {
+    background-color: #121212;
+    color: #f1f1f1;
+    padding: 20px;
+  }
+  
+  /* Header with Home Button */
+  .header {
+    display: flex;
+    justify-content: flex-start;
+    padding-bottom: 20px;
+  }
+  
+  .home-button {
+    color: #f1f1f1;
+    text-decoration: none;
+    font-size: 1.2em;
+    padding: 10px 20px;
+    border: 2px solid #E94560;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .home-button:hover {
+    background-color: #E94560;
+    color: #121212;
+  }
+  
+  .zigzag-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .zigzag-container {
+    max-width: 1000px;
+    width: 100%;
+  }
+  
+  .zigzag-item {
+    display: flex;
+    align-items: center;
+    padding: 30px 0;
+    transition: transform 0.3s ease;
+  }
+  
+  .zigzag-item:hover {
+    transform: scale(1.03);
+  }
+  
+  .zigzag-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
+  }
+  
+  .zigzag-text {
+    max-width: 450px;
+    padding: 0 20px;
+  }
+  
+  .zigzag-text h2 {
+    color: #E94560;
+    margin-bottom: 10px;
+    font-size: 1.8em;
+  }
+  
+  .zigzag-text p {
+    font-size: 1em;
+    line-height: 1.6;
+    color: #cccccc;
+  }
+  
+  /* Reverse layout for alternating sections */
+  .reverse {
+    flex-direction: row-reverse;
+  }
+  
+  .zigzag-item, .reverse {
+    gap: 30px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .zigzag-item, .reverse {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .zigzag-text {
+      padding: 20px 0;
+    }
+  }
+  
