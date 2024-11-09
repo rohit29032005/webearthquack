@@ -78,7 +78,7 @@ nav {
 
 /* Hero Section */
 .hero {
-    background: url('./home1.jpeg') center/cover;
+    background: url('../pictures/home1.jpeg') center/cover;
     /* Background image */
     color: white;
     text-align: center;
